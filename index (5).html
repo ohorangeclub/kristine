@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>염희경 | Portfolio 2026</title>
+  <style>
+    :root {
+      --cream: #f6f4ea;
+      --ink: #222222;
+      --pink: #ff2bbf;
+      --yellow: #ffd73a;
+      --mint: #7ee7cf;
+      --purple: #b68cff;
+      --line: rgba(0, 0, 0, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    .page {
+      width: min(100%, 920px);
+      margin: 0 auto;
+      padding: 42px 24px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero {
+      min-height: 420px;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.74), rgba(255,255,255,.34)),
+        radial-gradient(circle at 18% 20%, rgba(255, 43, 191, .22), transparent 22%),
+        radial-gradient(circle at 82% 25%, rgba(255, 215, 58, .32), transparent 20%),
+        radial-gradient(circle at 62% 80%, rgba(126, 231, 207, .32), transparent 24%);
+      border: 1px solid rgba(0,0,0,.08);
+      padding: 46px;
+      position: relative;
+      box-shadow: 0 24px 70px rgba(0,0,0,.08);
+    }
+
+    .top-label {
+      display: inline-block;
+      transform: rotate(-3deg);
+      background: var(--pink);
+      color: white;
+      padding: 8px 16px;
+      font: 800 18px Arial, sans-serif;
+      letter-spacing: .5px;
+      box-shadow: 6px 6px 0 var(--yellow);
+    }
+
+    h1 {
+      margin: 28px 0 0;
+      font: 900 clamp(64px, 12vw, 132px) Arial, sans-serif;
+      line-height: .82;
+      letter-spacing: -8px;
+      text-transform: uppercase;
+    }
+
+    .year {
+      margin-top: 12px;
+      color: var(--pink);
+      font: 400 42px 'Brush Script MT', cursive;
+      transform: rotate(-3deg);
+    }
+
+    .sticker {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font: 900 15px Arial, sans-serif;
+      line-height: 1.05;
+      text-transform: uppercase;
+      border: 3px solid var(--ink);
+      box-shadow: 4px 4px 0 rgba(0,0,0,.18);
+    }
+
+    .starburst {
+      width: 116px;
+      height: 116px;
+      background: var(--yellow);
+      color: var(--pink);
+      clip-path: polygon(50% 0%,58% 18%,75% 7%,77% 28%,98% 25%,85% 43%,100% 57%,78% 60%,83% 82%,63% 73%,50% 100%,38% 74%,17% 84%,22% 62%,0% 56%,16% 42%,4% 24%,26% 27%,27% 5%,43% 18%);
+      border: none;
+      transform: rotate(-9deg);
+    }
+
+    .pill {
+      border-radius: 999px;
+      background: var(--mint);
+      padding: 12px 18px;
+      transform: rotate(-14deg);
+    }
+
+    .hello {
+      top: 36px;
+      right: 38px;
+      width: 118px;
+      height: 72px;
+      background: rgba(255,255,255,.55);
+      color: var(--pink);
+      transform: rotate(8deg);
+    }
+
+    .vibe {
+      right: 240px;
+      top: 156px;
+    }
+
+    .lang {
+      left: 38px;
+      bottom: 34px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 32px;
+      margin-top: 48px;
+      align-items: start;
+    }
+
+    .photo-card {
+      background: white;
+      border-radius: 32px;
+      padding: 16px;
+      transform: rotate(-1deg);
+      box-shadow: 0 22px 44px rgba(0,0,0,.08);
+      position: relative;
+    }
+
+    .photo-card::before {
+      content: '';
+      position: absolute;
+      width: 54px;
+      height: 20px;
+      background: #f5a6a6;
+      top: -10px;
+      left: 40px;
+      transform: rotate(-12deg);
+      opacity: .85;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+
+    .intro h2,
+    .resume h2 {
+      margin: 0 0 12px;
+      color: var(--pink);
+      font: 400 clamp(54px, 8vw, 86px) 'Brush Script MT', cursive;
+      line-height: .9;
+    }
+
+    .intro h3 {
+      margin: 0 0 16px;
+      font: 800 17px Arial, sans-serif;
+      text-align: center;
+    }
+
+    .intro p {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .keyword-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .keyword {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: rgba(255,255,255,.58);
+      font: 800 13px Arial, sans-serif;
+    }
+
+    .resume {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      margin-top: 56px;
+      border-top: 1px dashed var(--line);
+      padding-top: 44px;
+    }
+
+    .section-title {
+      color: var(--pink);
+      font: 900 19px Arial, sans-serif;
+      margin: 0 0 14px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 13px;
+      line-height: 1.45;
+      position: relative;
+      padding-left: 18px;
+      font-size: 16px;
+    }
+
+    li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--yellow);
+      font-size: 24px;
+      line-height: 16px;
+    }
+
+    .skill-box {
+      background: rgba(182, 140, 255, .78);
+      color: white;
+      border-radius: 18px;
+      padding: 16px 18px;
+      font: 800 14px Arial, sans-serif;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .bar span:last-child {
+      height: 9px;
+      background: linear-gradient(90deg, var(--yellow) var(--level), rgba(0,0,0,.09) var(--level));
+      border-radius: 999px;
+    }
+
+    .footer-note {
+      margin-top: 46px;
+      text-align: center;
+      font: 900 22px Arial, sans-serif;
+      color: var(--pink);
+      transform: rotate(-2deg);
+    }
+
+    .doodle {
+      position: absolute;
+      font: 900 34px Arial, sans-serif;
+      color: var(--ink);
+      opacity: .72;
+      pointer-events: none;
+    }
+
+    .d1 { right: 34px; top: 520px; transform: rotate(18deg); }
+    .d2 { left: 28px; top: 650px; transform: rotate(-12deg); }
+    .d3 { right: 90px; bottom: 112px; transform: rotate(8deg); }
+
+    @media (max-width: 760px) {
+      .page { padding: 22px 14px 52px; }
+      .hero { padding: 30px 24px; min-height: 360px; }
+      h1 { letter-spacing: -5px; }
+      .grid, .resume { grid-template-columns: 1fr; }
+      .sticker.hello { right: 18px; top: 20px; transform: scale(.82) rotate(8deg); }
+      .sticker.vibe { right: 44px; top: 190px; transform: scale(.8) rotate(-9deg); }
+      .sticker.lang { left: 26px; bottom: 26px; transform: scale(.82) rotate(-14deg); }
+      .doodle { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <span class="top-label">DIGITAL × LIFE × GROWTH</span>
+      <h1>HEE<br />KYUNG<br />FOLIO</h1>
+      <div class="year">2026</div>
+
+      <div class="sticker hello">GOOD<br />ENERGY</div>
+      <div class="sticker starburst vibe">PLAN<br />VIBE</div>
+      <div class="sticker pill lang">3 LANGUAGES</div>
+    </section>
+
+    <section class="grid">
+      <div class="photo-card">
+        <img src="images/profile.jpg" alt="염희경 프로필 사진" />
+      </div>
+
+      <div class="intro">
+        <h2>Hello</h2>
+        <h3>My name is 염희경</h3>
+        <p>
+          저는 IT 기획자이자 투자자입니다. 디지털 서비스의 흐름을 읽고,
+          사람에게 필요한 습관과 성장 구조를 설계하는 일을 좋아합니다.
+          영어, 일본어, 스페인어를 배우며 세상을 더 넓게 이해하고,
+          여행을 통해 새로운 관점과 영감을 수집합니다.
+        </p>
+
+        <div class="keyword-row">
+          <span class="keyword">IT Planner</span>
+          <span class="keyword">Investor</span>
+          <span class="keyword">Habit Design</span>
+          <span class="keyword">Self Growth</span>
+          <span class="keyword">Travel Lover</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume">
+      <div>
+        <h2>Resume</h2>
+
+        <h4 class="section-title">Focus</h4>
+        <ul>
+          <li><strong>IT 기획</strong> — 웹서비스, 앱, 사용자 흐름, 콘텐츠 구조 설계</li>
+          <li><strong>투자</strong> — 시장 변화, 기업 성장성, 미래 산업 흐름 관찰</li>
+          <li><strong>습관 형성</strong> — 작은 행동을 반복 가능한 성장 시스템으로 전환</li>
+          <li><strong>여행</strong> — 낯선 도시에서 영감과 새로운 언어 감각 수집</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="section-title">Identity</h4>
+        <div class="skill-box">
+          Digital Planning · Investment Insight · Language Learning · Habit Coaching · Travel Inspiration
+        </div>
+
+        <h4 class="section-title">Languages</h4>
+        <ul>
+          <li>English — Learning & communication</li>
+          <li>Japanese — Learning & culture</li>
+          <li>Spanish — Beginner growth journey</li>
+        </ul>
+
+        <h4 class="section-title">Interests</h4>
+        <div class="bar" style="--level: 92%"><span>Planning</span><span></span></div>
+        <div class="bar" style="--level: 88%"><span>Investment</span><span></span></div>
+        <div class="bar" style="--level: 82%"><span>Languages</span><span></span></div>
+        <div class="bar" style="--level: 90%"><span>Habit</span><span></span></div>
+        <div class="bar" style="--level: 86%"><span>Travel</span><span></span></div>
+      </div>
+    </section>
+
+    <div class="footer-note">Build habits. Read the market. Travel wider.</div>
+
+    <div class="doodle d1">✦</div>
+    <div class="doodle d2">⚡</div>
+    <div class="doodle d3">☺</div>
+  </main>
+</body>
+</html>
